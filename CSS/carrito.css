@@ -1,0 +1,336 @@
+/* ======================================================
+   RESET BÁSICO
+   ====================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000; /* fondo negro, consistente con el resto del sitio */
+}
+
+/* ======================================================
+   TÍTULO SUPERIOR CON EFECTO NEÓN
+   Resplandor rojo radial detrás del texto
+   ====================================================== */
+.page-title-glow {
+  background: radial-gradient(ellipse at center, rgba(255, 30, 30, 0.45) 0%, rgba(255, 0, 0, 0.12) 45%, rgba(0, 0, 0, 0) 75%);
+  padding: 46px 20px 36px;
+  text-align: center;
+}
+
+.page-title {
+  font-family: 'Anton', 'Arial Narrow', sans-serif;
+  font-size: 46px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffb199; /* color base claro, tipo brasa */
+
+  /* Varias capas de sombra para el brillo neón */
+  text-shadow:
+    0 0 8px #ff3b3b,
+    0 0 18px #ff3b3b,
+    0 0 34px #ff0000,
+    0 0 55px #ff0000;
+}
+
+/* ======================================================
+   LAYOUT PRINCIPAL: lista de productos + resumen de compra
+   ====================================================== */
+.cart-layout {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 10px 24px 60px;
+
+  display: grid;
+  grid-template-columns: 2.2fr 1fr; /* lista más ancha que el resumen */
+  gap: 32px;
+  align-items: start;
+}
+
+/* ======================================================
+   COLUMNA IZQUIERDA: LISTA DE PRODUCTOS
+   ====================================================== */
+.cart-list__title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* ------------------------------------------------------
+   FILA DE PRODUCTO
+   Imagen | Nombre+precio | Control de cantidad | Eliminar
+   ------------------------------------------------------ */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  border: 1px solid #ff2222;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 34, 34, 0.35); /* leve resplandor rojo en el borde */
+  padding: 18px 24px;
+  margin-bottom: 18px;
+}
+
+/* ------------------------------------------------------
+   ESPACIO RESERVADO PARA LA IMAGEN DEL PRODUCTO
+   ------------------------------------------------------ */
+.cart-item__image-placeholder {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+
+  /* Borde punteado solo como GUÍA visual, quitar al insertar la imagen real */
+  border: 1px dashed #662222;
+  border-radius: 8px;
+}
+
+.cart-item__image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* evita deformar la imagen al insertarla */
+}
+
+.cart-item__info {
+  flex: 1; /* ocupa el espacio disponible entre la imagen y los controles */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cart-item__name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: #ffffff;
+}
+
+.cart-item__price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+.cart-item__price-old {
+  color: #9a9a9a;
+  text-decoration: line-through;
+}
+
+.cart-item__discount {
+  color: #ff2b2b;
+  font-weight: 700;
+}
+
+.cart-item__price-new {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------
+   CONTROL DE CANTIDAD (−  1  +)
+   Píldora blanca dividida en 3 secciones
+   ------------------------------------------------------ */
+.cart-item__qty {
+  display: flex;
+  align-items: stretch;
+  flex-shrink: 0;
+
+  background-color: #ffffff;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.cart-item__qty-btn {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #cc1212;
+  background-color: #ffffff;
+  border: none;
+  width: 42px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.cart-item__qty-btn:hover,
+.cart-item__qty-btn:focus-visible {
+  background-color: #f0f0f0;
+}
+
+.cart-item__qty-value {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #111111;
+  min-width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #e60000;
+  border-right: 1px solid #e60000;
+}
+
+/* ------------------------------------------------------
+   BOTÓN ELIMINAR (icono de bote de basura)
+   ------------------------------------------------------ */
+.cart-item__remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 6px;
+  transition: transform 0.15s ease;
+}
+
+.cart-item__remove:hover,
+.cart-item__remove:focus-visible {
+  transform: scale(1.1);
+}
+
+/* ======================================================
+   COLUMNA DERECHA: RESUMEN DE COMPRA
+   Tarjeta tipo "ticket" con esquinas cortadas (clip-path)
+   ====================================================== */
+.cart-summary {
+  border: 2px solid #ff2222;
+  box-shadow:
+    0 0 14px rgba(255, 34, 34, 0.6),
+    inset 0 0 16px rgba(255, 34, 34, 0.12);
+  padding: 32px 28px 28px;
+
+  /* Esquinas cortadas (forma de "ticket"): superior izquierda
+     e inferior derecha achatadas en diagonal */
+  clip-path: polygon(
+    24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%,
+    0 100%, 0 24px
+  );
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cart-summary__title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.cart-summary__divider {
+  border: none;
+  border-top: 1px solid #3a3a3a;
+}
+
+.cart-summary__row {
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e5e5e5;
+}
+
+.cart-summary__discount {
+  color: #ff2b2b;
+}
+
+.cart-summary__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.cart-summary__total-label {
+  font-family: 'Anton', 'Arial Narrow', sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #ff2b2b;
+  text-shadow: 0 0 10px rgba(255, 43, 43, 0.8); /* ligero brillo en "TOTAL" */
+}
+
+.cart-summary__total-value {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: #ffffff;
+}
+
+/* ------------------------------------------------------
+   BOTONES DEL RESUMEN
+   ------------------------------------------------------ */
+.cart-summary__btn {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+
+  border: none;
+  border-radius: 999px;
+  padding: 16px 20px;
+  cursor: pointer;
+  width: 100%;
+
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.cart-summary__btn:hover,
+.cart-summary__btn:focus-visible {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+
+/* Botón principal: rojo sólido con texto blanco */
+.cart-summary__btn--primary {
+  background-color: #e01313;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(224, 19, 19, 0.6);
+}
+
+/* Botón secundario: blanco con texto rojo */
+.cart-summary__btn--secondary {
+  background-color: #ffffff;
+  color: #cc1212;
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+@media (max-width: 900px) {
+  .cart-layout {
+    grid-template-columns: 1fr; /* resumen pasa debajo de la lista */
+  }
+
+  .cart-item {
+    flex-wrap: wrap;
+  }
+
+  .cart-item__info {
+    width: 100%;
+    order: 3;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-title {
+    font-size: 30px;
+  }
+
+  .cart-item {
+    gap: 14px;
+    padding: 14px 16px;
+  }
+
+  .cart-item__image-placeholder {
+    width: 70px;
+    height: 70px;
+  }
+}

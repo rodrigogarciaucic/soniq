@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SONIQ - Header</title>
+
+  <!-- Fuente estilo "impact/condensed" para imitar la tipografía gruesa del menú -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/header.css">
+</head>
+<body>
+
+  <!-- ======================================================
+       HEADER PRINCIPAL
+       Estructura: [Logo] [Navegación] [Buscador] [Iconos]
+       ====================================================== -->
+  <header class="header">
+
+    <!-- ESPACIO RESERVADO PARA EL LOGO -->
+    <!-- Aquí el usuario colocará su imagen de logo (ej. <img src="logo.png" alt="SONIQ">) -->
+    <div class="header__logo-placeholder">
+      <a href="home.html">
+<img src="https://i.ibb.co/WNFkrrqk/logo-fondo-transparente.png" alt="Logo SONIQ" class="header__logo-img">
+    </a>
+    </div>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li><a href="home.html" class="header__nav-link">Principal</a></li>
+        <li><a href="bocinas.html" class="header__nav-link">Bocinas</a></li>
+        <li><a href="#" class="header__nav-link">Analisis</a></li>
+        <li><a href="#" class="header__nav-link">Recomendaciones</a></li>
+      </ul>
+    </nav>
+
+    <!-- BARRA DE BÚSQUEDA -->
+    <div class="header__search">
+      <svg class="header__search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="11" cy="11" r="7" stroke="#9a9a9a" stroke-width="2"/>
+        <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="#9a9a9a" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <input type="text" class="header__search-input" placeholder="">
+    </div>
+
+    <!-- ESPACIO RESERVADO PARA LOS ICONOS (usuario / carrito) -->
+    <!-- Aquí el usuario colocará su imagen/icono con usuario y carrito -->
+<div class="header__icons-placeholder">
+    <a href="carrito.html">
+        <img src="https://i.ibb.co/HfNr0Lnb/carrito.png" alt="Cuenta y carrito" class="header__icons-img">
+        
+
+    </a>
+</div>
+    </div>
+
+  </header>
+
+</body>
+</html>

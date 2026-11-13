@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SONIQ - Pago con tarjeta</title>
+
+  <!-- Misma fuente usada en el resto del sitio -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/pagotarjeta.css">
+
+  <!-- Inserta el header y el footer del sitio (#header y #footer) -->
+  <script src="Javascript/components.js"></script>
+
+  <!-- Lee el carrito de localStorage, calcula el resumen, valida
+       el formulario y simula el pago. Si el carrito está vacío
+       muestra el aviso y redirige a bocinas.html -->
+  <script src="Javascript/pagotarjeta.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div id="header"></div>
+  </header>
+
+  <!-- ======================================================
+       TÍTULO SUPERIOR CON EFECTO NEÓN
+       ====================================================== -->
+  <div class="page-title-glow">
+    <h1 class="page-title">Pago con tarjeta</h1>
+  </div>
+
+  <!-- ======================================================
+       CONTENIDO PRINCIPAL
+       2 columnas: formulario de tarjeta (izq.) + resumen de compra (der.)
+       ====================================================== -->
+  <main class="checkout">
+
+    <!-- ============================================================
+         COLUMNA IZQUIERDA: FORMULARIO DE PAGO
+         ============================================================ -->
+    <section class="payment">
+      <p class="payment__intro">Introduce tus datos de pago de forma segura y simulada</p>
+
+      <!-- El <fieldset> con <legend> crea el título "Detalle de la Tarjeta"
+           encima del borde rojo, igual que en la imagen -->
+      <form class="card-form" id="card-form" autocomplete="off" novalidate>
+        <fieldset class="card-form__box">
+          <legend class="card-form__legend">Detalle de la Tarjeta</legend>
+
+          <!-- TITULAR -->
+          <div class="field">
+            <label class="field__label" for="titular">Titular de la Tarjeta</label>
+            <input class="field__input" type="text" id="titular" name="titular"
+                   placeholder="Titular de la Tarjeta" required>
+          </div>
+
+          <!-- NÚMERO DE TARJETA -->
+          <div class="field">
+            <label class="field__label" for="numero">Número de Tarjeta</label>
+            <input class="field__input" type="text" id="numero" name="numero"
+                   placeholder="XXXX XXXX XXXX XXXX" inputmode="numeric" maxlength="19" required>
+          </div>
+
+          <!-- FECHA + CVV: dos columnas en la misma fila -->
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="expiracion">Fecha de Expiación</label>
+              <input class="field__input" type="text" id="expiracion" name="expiracion"
+                     placeholder="MM/AA" inputmode="numeric" maxlength="5" required>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="cvv">Código de Seguridad</label>
+              <input class="field__input" type="password" id="cvv" name="cvv"
+                     placeholder="CVV" inputmode="numeric" maxlength="4" required>
+            </div>
+          </div>
+
+          <!-- Mensajes que llena pagotarjeta.js (ocultos por defecto) -->
+          <p class="card-form__error" id="form-error" role="alert" hidden></p>
+          <p class="card-form__ok" id="form-ok" role="status" hidden></p>
+
+          <button class="btn btn--primary btn--wide" type="submit" id="btn-pagar">Proceder al pago</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- ============================================================
+         COLUMNA DERECHA: RESUMEN DE COMPRA
+         Los importes se calculan en pagotarjeta.js
+         ============================================================ -->
+    <aside class="summary">
+      <h2 class="summary__title">Resumen de compra</h2>
+      <hr class="summary__divider">
+
+      <div class="summary__row">
+        <span>Subtotal</span>
+        <span id="resumen-subtotal">$0.00</span>
+      </div>
+      <div class="summary__row">
+        <span>Descuento total</span>
+        <span class="summary__discount" id="resumen-descuento">$0.00</span>
+      </div>
+      <div class="summary__row">
+        <span>Envío</span>
+        <span id="resumen-envio">Gratis</span>
+      </div>
+
+      <hr class="summary__divider">
+
+      <div class="summary__total">
+        <span class="summary__total-label">Total</span>
+        <span class="summary__total-value" id="resumen-total">$0.00</span>
+      </div>
+
+      <!-- CAMBIA "datosenvio.html" por el nombre real de tu página de envío -->
+      <!-- "Datos de envío": solo funciona si el pago fue aprobado
+           "Seguir comprando": se bloquea una vez aprobado el pago
+           (ambas reglas las controla Javascript/pagotarjeta.js) -->
+      <a class="btn btn--primary" id="btn-envio" href="datosenvio.html">Datos de envío</a>
+      <a class="btn btn--secondary" id="btn-seguir" href="bocinas.html">Seguir comprando</a>
+
+      <p class="summary__note">Pago 100% seguro y cifrado (simulación)</p>
+    </aside>
+
+  </main>
+
+  <footer>
+    <div id="footer"></div>
+  </footer>
+
+</body>
+</html>

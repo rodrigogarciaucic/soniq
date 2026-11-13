@@ -1,0 +1,189 @@
+/* ======================================================
+   RESET BÁSICO
+   Quita márgenes y paddings por defecto del navegador
+   ====================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ======================================================
+   FONDO DE LA PÁGINA
+   Negro, igual que el resto del sitio
+   ====================================================== */
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+/* ======================================================
+   TÍTULO CON EFECTO NEÓN
+   Contenedor con resplandor radial rojo detrás del texto
+   ====================================================== */
+.title-glow {
+  /* Halo rojo que se desvanece hacia los bordes */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 30, 30, 0.55) 0%,
+    rgba(255, 0, 0, 0.15) 45%,
+    rgba(0, 0, 0, 0) 75%
+  );
+  padding: 50px 20px 40px;
+  text-align: center;
+}
+
+.page-title {
+  font-family: 'Anton', 'Arial Narrow', sans-serif;
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffb199; /* color base claro, tipo brasa */
+
+  /* Varias capas de sombra para simular el brillo del neón */
+  text-shadow:
+    0 0 8px #ff3b3b,
+    0 0 18px #ff3b3b,
+    0 0 34px #ff0000,
+    0 0 60px #ff0000;
+}
+
+/* Fecha de "Última actualización" bajo el título */
+.page-updated {
+  margin-top: 14px;
+  font-size: 14px;
+  font-style: italic;
+  color: #cccccc;
+}
+
+/* ======================================================
+   CONTENEDOR PRINCIPAL DEL TEXTO
+   Ancho limitado para que las líneas sean cómodas de leer
+   ====================================================== */
+.terminos {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 24px 70px;
+}
+
+/* Párrafo de bienvenida al inicio */
+.terminos__intro {
+  font-size: 17px;
+  color: #ffffff;
+  padding-bottom: 28px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #2a2a2a; /* línea sutil de separación */
+}
+
+/* ======================================================
+   SECCIONES NUMERADAS (1. al 9.)
+   ====================================================== */
+.terminos__section {
+  padding: 26px 0;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+/* Última sección sin línea inferior */
+.terminos__section:last-child {
+  border-bottom: none;
+}
+
+/* Encabezado de cada sección en Oswald, con acento rojo a la izquierda */
+.terminos__heading {
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+
+  margin-bottom: 12px;
+  padding-left: 14px;
+  border-left: 4px solid #ff2b2b;
+}
+
+/* Párrafos del contenido */
+.terminos__section p {
+  font-size: 16px;
+  color: #d9d9d9; /* gris claro: más cómodo para leer que blanco puro */
+  margin-bottom: 12px;
+}
+
+/* ======================================================
+   LISTAS (viñetas)
+   Viñeta personalizada en rojo, a juego con el sitio
+   ====================================================== */
+.terminos__list {
+  list-style: none; /* quitamos la viñeta por defecto */
+  margin-top: 8px;
+}
+
+.terminos__list li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #d9d9d9;
+}
+
+/* Viñeta: pequeño triángulo rojo, igual que las flechas del acordeón */
+.terminos__list li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.55em;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #ff2b2b;
+}
+
+/* Texto en negritas dentro de las listas (ej. "Devoluciones:") */
+.terminos__list strong {
+  color: #ffffff;
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .page-title {
+    font-size: 36px;
+  }
+
+  .terminos__heading {
+    font-size: 21px;
+  }
+}
+
+/* Móvil */
+@media (max-width: 560px) {
+  .title-glow {
+    padding: 36px 16px 28px;
+  }
+
+  .page-title {
+    font-size: 26px;
+  }
+
+  .terminos {
+    padding: 6px 18px 50px;
+  }
+
+  .terminos__intro {
+    font-size: 15px;
+  }
+
+  .terminos__heading {
+    font-size: 19px;
+  }
+
+  .terminos__section p,
+  .terminos__list li {
+    font-size: 15px;
+  }
+}

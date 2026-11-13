@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SONIQ - Datos de envío</title>
+
+  <!-- Misma fuente usada en el resto del sitio -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/datosenvio.css">
+
+  <!-- Inserta el header y el footer del sitio (#header y #footer) -->
+  <script src="Javascript/components.js"></script>
+
+  <!-- Valida los datos de envío, controla el botón "Finalizar compra"
+       y muestra el resumen del pago aprobado. Si no hay un pago
+       aprobado, regresa a pagotarjeta.html -->
+  <script src="Javascript/datosenvio.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div id="header"></div>
+  </header>
+
+  <!-- ======================================================
+       TÍTULO SUPERIOR CON EFECTO NEÓN
+       ====================================================== -->
+  <div class="page-title-glow">
+    <h1 class="page-title">Datos de envío</h1>
+  </div>
+
+  <!-- ======================================================
+       CONTENIDO PRINCIPAL
+       2 columnas: formulario de envío (izq.) + resumen de compra (der.)
+       ====================================================== -->
+  <main class="checkout">
+
+    <!-- ============================================================
+         COLUMNA IZQUIERDA: FORMULARIO DE ENVÍO
+         ============================================================ -->
+    <section class="payment">
+      <p class="payment__intro">Introduce tus datos de envío de forma segura y simulada</p>
+
+      <!-- El <fieldset> con <legend> crea el título "Dirección de entrega"
+           encima del borde rojo, igual que en la página de pago -->
+      <form class="card-form" id="envio-form" autocomplete="off" novalidate>
+        <fieldset class="card-form__box">
+          <legend class="card-form__legend">Dirección de entrega</legend>
+
+          <!-- Los campos van en una cuadrícula de 2 columnas.
+               La clase "field--full" hace que un campo ocupe las 2 columnas -->
+          <div class="field-grid">
+
+            <!-- NOMBRE -->
+            <div class="field field--full">
+              <label class="field__label" for="nombre">Nombre completo</label>
+              <input class="field__input" type="text" id="nombre" name="nombre"
+                     placeholder="Nombre y apellidos de quien recibe" autocomplete="off">
+            </div>
+
+            <!-- TELÉFONO -->
+            <div class="field">
+              <label class="field__label" for="telefono">Teléfono</label>
+              <input class="field__input" type="tel" id="telefono" name="telefono"
+                     placeholder="10 dígitos" inputmode="numeric" maxlength="10">
+            </div>
+
+            <!-- CORREO -->
+            <div class="field">
+              <label class="field__label" for="correo">Correo electrónico</label>
+              <input class="field__input" type="email" id="correo" name="correo"
+                     placeholder="nombre@correo.com">
+            </div>
+
+            <!-- CALLE Y NÚMERO -->
+            <div class="field field--full">
+              <label class="field__label" for="calle">Calle y número</label>
+              <input class="field__input" type="text" id="calle" name="calle"
+                     placeholder="Calle, número exterior e interior">
+            </div>
+
+            <!-- COLONIA -->
+            <div class="field">
+              <label class="field__label" for="colonia">Colonia</label>
+              <input class="field__input" type="text" id="colonia" name="colonia"
+                     placeholder="Colonia">
+            </div>
+
+            <!-- CÓDIGO POSTAL -->
+            <div class="field">
+              <label class="field__label" for="cp">Código postal</label>
+              <input class="field__input" type="text" id="cp" name="cp"
+                     placeholder="5 dígitos" inputmode="numeric" maxlength="5">
+            </div>
+
+            <!-- CIUDAD -->
+            <div class="field">
+              <label class="field__label" for="ciudad">Ciudad o municipio</label>
+              <input class="field__input" type="text" id="ciudad" name="ciudad"
+                     placeholder="Ciudad o municipio">
+            </div>
+
+            <!-- ESTADO -->
+            <div class="field">
+              <label class="field__label" for="estado">Estado</label>
+              <select class="field__input" id="estado" name="estado">
+                <option value="">Selecciona tu estado</option>
+                <option>Aguascalientes</option>
+                <option>Baja California</option>
+                <option>Baja California Sur</option>
+                <option>Campeche</option>
+                <option>Chiapas</option>
+                <option>Chihuahua</option>
+                <option>Ciudad de México</option>
+                <option>Coahuila</option>
+                <option>Colima</option>
+                <option>Durango</option>
+                <option>Estado de México</option>
+                <option>Guanajuato</option>
+                <option>Guerrero</option>
+                <option>Hidalgo</option>
+                <option>Jalisco</option>
+                <option>Michoacán</option>
+                <option>Morelos</option>
+                <option>Nayarit</option>
+                <option>Nuevo León</option>
+                <option>Oaxaca</option>
+                <option>Puebla</option>
+                <option>Querétaro</option>
+                <option>Quintana Roo</option>
+                <option>San Luis Potosí</option>
+                <option>Sinaloa</option>
+                <option>Sonora</option>
+                <option>Tabasco</option>
+                <option>Tamaulipas</option>
+                <option>Tlaxcala</option>
+                <option>Veracruz</option>
+                <option>Yucatán</option>
+                <option>Zacatecas</option>
+              </select>
+            </div>
+
+            <!-- REFERENCIAS (opcional: NO cuenta para validar que los datos estén completos) -->
+            <div class="field field--full">
+              <label class="field__label" for="referencias">
+                Referencias <span class="field__optional">(opcional)</span>
+              </label>
+              <textarea class="field__input field__input--area" id="referencias" name="referencias"
+                        rows="2" placeholder="Entre qué calles está, color de la casa, etc."></textarea>
+            </div>
+
+          </div>
+
+          <!-- Mensajes que llena datosenvio.js (ocultos por defecto) -->
+          <p class="card-form__error" id="form-error" role="alert" hidden></p>
+          <p class="card-form__ok" id="form-ok" role="status" hidden>
+            Datos de envío guardados correctamente. Ya puedes finalizar tu compra.
+          </p>
+
+          <button class="btn btn--primary btn--wide" type="submit" id="btn-enviar">Enviar datos</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- ============================================================
+         COLUMNA DERECHA: RESUMEN DE COMPRA
+         Los importes se leen del pago aprobado (datosenvio.js)
+         ============================================================ -->
+    <aside class="summary">
+      <h2 class="summary__title">Resumen de compra</h2>
+      <hr class="summary__divider">
+
+      <div class="summary__row">
+        <span>Subtotal</span>
+        <span id="resumen-subtotal">$0.00</span>
+      </div>
+      <div class="summary__row">
+        <span>Descuento total</span>
+        <span class="summary__discount" id="resumen-descuento">$0.00</span>
+      </div>
+      <div class="summary__row">
+        <span>Envío</span>
+        <span id="resumen-envio">Gratis</span>
+      </div>
+
+      <hr class="summary__divider">
+
+      <div class="summary__total">
+        <span class="summary__total-label">Total</span>
+        <span class="summary__total-value" id="resumen-total">$0.00</span>
+      </div>
+
+      <!-- Deshabilitado hasta que los datos de envío estén completos y enviados -->
+      <button class="btn btn--primary" type="button" id="btn-finalizar" disabled>Finalizar compra</button>
+
+      <!-- Aviso mientras el botón está deshabilitado -->
+      <p class="summary__hint" id="hint-finalizar">
+        Completa y envía tus datos de envío para habilitar este botón.
+      </p>
+
+      <!-- Mensaje final (aparece al finalizar la compra y se queda fijo) -->
+      <p class="summary__final" id="final-ok" role="status" hidden>
+        ¡Tu compra se generó correctamente! En breve saldrá tu pedido a tu casa.
+        Gracias por tu compra.
+      </p>
+
+      <p class="summary__note">Pedido simulado: no se realiza ningún cobro ni envío real.</p>
+    </aside>
+
+  </main>
+
+  <footer>
+    <div id="footer"></div>
+  </footer>
+
+</body>
+</html>

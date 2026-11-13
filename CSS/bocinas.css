@@ -1,0 +1,343 @@
+/* ======================================================
+   RESET BÁSICO
+   ====================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000; /* fondo negro, igual al resto del sitio */
+}
+
+/* ======================================================
+   TÍTULO CON EFECTO NEÓN
+   Envuelto en un contenedor con resplandor radial rojo
+   detrás del texto, como en la imagen
+   ====================================================== */
+.title-glow {
+  /* Resplandor rojo radial simulando el "halo" de neón */
+  background: radial-gradient(ellipse at center, rgba(255, 30, 30, 0.55) 0%, rgba(255, 0, 0, 0.15) 45%, rgba(0, 0, 0, 0) 75%);
+  padding: 50px 20px 40px;
+  text-align: center;
+}
+
+.page-title {
+  font-family: 'Anton', 'Arial Narrow', sans-serif;
+  font-size: 52px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffb199; /* color base claro, tipo brasa */
+
+  /* Varias capas de sombra para el efecto de brillo neón */
+  text-shadow:
+    0 0 8px #ff3b3b,
+    0 0 18px #ff3b3b,
+    0 0 34px #ff0000,
+    0 0 60px #ff0000;
+}
+
+/* ======================================================
+   CONTENEDOR PRINCIPAL
+   ====================================================== */
+.bocinas {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 50px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* poco espacio: el encabezado de la siguiente sección
+               va casi pegado a la última fila de tarjetas, igual
+               que en la imagen */
+}
+
+/* ======================================================
+   BLOQUE ACORDEÓN (Chico / Mediano / Grande)
+   ====================================================== */
+.accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------------------------------------------------------
+   ENCABEZADO CLICABLE
+   Flecha - Título (Subtítulo en cursiva) - Flecha
+   Centrado horizontalmente, todo en una fila
+   ------------------------------------------------------ */
+.accordion__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 16px 0;
+}
+
+.accordion__arrow {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+/* La flecha derecha es la misma imagen reflejada horizontalmente,
+   para que ambas "apunten" hacia el texto central */
+.accordion__arrow--right {
+  transform: scaleX(-1);
+}
+
+.accordion__title {
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.accordion__subtitle {
+  font-style: italic;
+  font-weight: 600;
+  text-transform: none;
+  color: #ffffff;
+}
+
+/* Pequeña animación: al pasar el mouse las flechas "laten"
+   levemente hacia el texto, reforzando que el encabezado es clicable */
+.accordion__header:hover .accordion__arrow {
+  transform: translateX(3px);
+}
+
+.accordion__header:hover .accordion__arrow--right {
+  transform: scaleX(-1) translateX(3px);
+}
+
+/* ------------------------------------------------------
+   PANEL DESPLEGABLE
+   Oculto por defecto (max-height: 0). Al agregar la clase
+   "is-open" (vía JS) se expande mostrando las tarjetas.
+   ------------------------------------------------------ */
+.accordion__panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.accordion__panel.is-open {
+  max-height: 1200px; /* suficientemente alto para mostrar todo el contenido */
+}
+
+/* Grid interno: 4 columnas, igual que en la imagen original */
+.accordion__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 16px;
+  padding: 20px 0 34px;
+}
+
+/* ======================================================
+   TARJETA DE PRODUCTO
+   Fondo transparente (igual que la imagen: las bocinas
+   están directamente sobre el negro, sin tarjeta blanca)
+   ====================================================== */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+/* ------------------------------------------------------
+   ESPACIO RESERVADO PARA LA IMAGEN
+   ------------------------------------------------------ */
+.product-card__image-placeholder {
+  width: 100%;
+  height: 150px;
+
+  /* Borde punteado solo como GUÍA visual, quitar al insertar la imagen real */
+
+}
+
+/* Variante para bocinas más altas (categoría "Grande") */
+.product-card__image-placeholder--tall {
+  height: 190px;
+}
+
+.product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* evita deformar la imagen al insertarla */
+}
+
+.product-card__name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+/* ------------------------------------------------------
+   PRECIO: precio anterior tachado + porcentaje de descuento
+   en rojo cursiva + precio final
+   ------------------------------------------------------ */
+.product-card__price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+.product-card__price-old {
+  color: #ffffff;
+  text-decoration: line-through;
+}
+
+.product-card__discount {
+  color: #ff2b2b;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.product-card__price-new {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------
+   BOTÓN "COMPRAR"
+   Píldora blanca con texto rojo, igual que en el resto del sitio
+   ------------------------------------------------------ */
+.product-card__btn {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  color: #cc1212;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 24px;
+  margin-top: 4px;
+  cursor: pointer;
+
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.product-card__btn:hover,
+.product-card__btn:focus-visible {
+  background-color: #f0f0f0;
+  transform: scale(1.03);
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+@media (max-width: 900px) {
+  .accordion__grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+  }
+
+  .page-title {
+    font-size: 38px;
+  }
+
+  .accordion__title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .accordion__grid {
+    grid-template-columns: 1fr; /* 1 columna en móvil */
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .accordion__header {
+    gap: 8px;
+  }
+
+  .accordion__title {
+    font-size: 15px;
+  }
+}
+
+/* ======================================================
+   ESTADOS DINÁMICOS (importación desde Google Sheets)
+   - Mensaje de "cargando" / error / sin productos
+   - Tarjeta marcada como agotada
+   ====================================================== */
+.accordion__empty {
+  grid-column: 1 / -1;
+  padding: 20px 10px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+.product-card--agotado {
+  opacity: 0.5;
+}
+
+.product-card--agotado .product-card__btn {
+  cursor: not-allowed;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.product-card--agotado .product-card__btn:hover,
+.product-card--agotado .product-card__btn:focus-visible {
+  transform: none;
+  background-color: #cccccc;
+}
+/* ======================================================
+   CONTENEDOR Y BOTÓN GLOBAL DE CARRITO
+   ====================================================== */
+.cart-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 24px 50px;
+  width: 100%;
+}
+
+.global-cart-btn {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: #cc1212;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 32px;
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.global-cart-btn:hover,
+.global-cart-btn:focus-visible {
+  background-color: #f0f0f0;
+  transform: scale(1.03);
+}

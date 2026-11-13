@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SONIQ - Carrito de compras</title>
+
+  <!-- Misma fuente usada en el resto del sitio -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/carrito.css">
+  <script src="Javascript/components.js"></script>
+
+  <!-- Lee el carrito desde localStorage y lo dibuja en la página.
+       Si está vacío muestra el aviso y redirige a bocinas.html -->
+  <script src="Javascript/carrito.js" defer></script>
+</head>
+<header>
+ <div id="header" ></div>
+</header>
+<body>
+
+  <!-- ======================================================
+       TÍTULO SUPERIOR CON EFECTO NEÓN
+       ====================================================== -->
+  <div class="page-title-glow">
+    <h1 class="page-title">Carrito de compras</h1>
+  </div>
+
+  <!-- ======================================================
+       CONTENIDO PRINCIPAL
+       2 columnas: lista de productos (izq.) + resumen de compra (der.)
+       ====================================================== -->
+  <main class="cart-layout">
+
+    <!-- ============================================================
+         COLUMNA IZQUIERDA: LISTA DE PRODUCTOS EN EL CARRITO
+         ============================================================ -->
+    <section class="cart-list">
+      <h2 class="cart-list__title">Carrito de compras</h2>
+
+      <!-- Los productos se generan dinámicamente desde localStorage
+           (ver Javascript/carrito.js). Cada producto se dibuja como:
+           <article class="cart-item" data-cart-item> ... </article> -->
+      <div id="cart-items"></div>
+
+    </section>
+
+    <!-- ============================================================
+         COLUMNA DERECHA: RESUMEN DE COMPRA
+         Tarjeta tipo "ticket" con esquinas cortadas y borde neón.
+         Los importes se calculan en carrito.js
+         ============================================================ -->
+    <aside class="cart-summary">
+      <h2 class="cart-summary__title">Resumen de compra</h2>
+      <hr class="cart-summary__divider">
+
+      <div class="cart-summary__row">
+        <span>Subtotal</span>
+        <span id="resumen-subtotal">$0.00</span>
+      </div>
+      <div class="cart-summary__row">
+        <span>Descuento total</span>
+        <span class="cart-summary__discount" id="resumen-descuento">$0.00</span>
+      </div>
+      <div class="cart-summary__row">
+        <span>Envío</span>
+        <span>Gratis</span>
+      </div>
+
+      <hr class="cart-summary__divider">
+
+      <div class="cart-summary__total">
+        <span class="cart-summary__total-label">Total</span>
+        <span class="cart-summary__total-value" id="resumen-total">$0.00</span>
+      </div>
+
+      <button class="cart-summary__btn cart-summary__btn--primary">Proceder al pago</button>
+      <button class="cart-summary__btn cart-summary__btn--secondary">Seguir comprando</button>
+    </aside>
+
+  </main>
+
+</body>
+<footer>
+    <div id="footer"></div>
+  </footer>
+</html>

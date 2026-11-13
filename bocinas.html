@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SONIQ - Bocinas</title>
+
+  <!-- Misma fuente usada en el resto del sitio -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:ital,wght@0,600;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/bocinas.css">
+
+  <script src="Javascript/components.js"></script>
+  <script src="Javascript/sheets-productos.js" defer></script>
+</head>
+<header>
+ <div id="header" ></div>
+</header>
+<body>
+
+  <!-- ======================================================
+       TÍTULO CON EFECTO NEÓN
+       ====================================================== -->
+  <div class="title-glow">
+    <h1 class="page-title">Bocinas para tu espacio</h1>
+  </div>
+
+  <!-- ======================================================
+       CONTENIDO PRINCIPAL: 3 secciones tipo acordeón
+       ====================================================== -->
+  <main class="bocinas">
+
+    <!-- ============================================================
+         BLOQUE 1: CHICO ( BAÑO, ESCRITORIO, COCINA )
+         ============================================================ -->
+    <section class="accordion" data-accordion>
+
+      <!-- Encabezado clicable con flechas decorativas a los lados.
+           Al hacer clic se muestra/oculta el panel de este bloque -->
+      <button class="accordion__header" type="button" aria-expanded="false">
+        <!-- Flecha decorativa izquierda (apunta hacia el texto) -->
+        <svg class="accordion__arrow" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+
+        <span class="accordion__title">
+          CHICO <span class="accordion__subtitle">( Baño, Escritorio, Cocina )</span>
+        </span>
+
+        <!-- Flecha decorativa derecha (apunta hacia el texto, reflejada) -->
+        <svg class="accordion__arrow accordion__arrow--right" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- Panel con las bocinas "chico". Inicia ABIERTO, igual que en la imagen -->
+      <div class="accordion__panel">
+        <!-- Los productos de esta sección se cargan dinámicamente desde
+             la hoja "Chico" del Google Sheet (ver Javascript/sheets-productos.js) -->
+        <div class="accordion__grid" id="grid-chico">
+          <p class="accordion__empty">Cargando productos…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BLOQUE 2: MEDIANO ( RECAMARA, SALON, ESTUDIO )
+         ============================================================ -->
+    <section class="accordion" data-accordion>
+
+      <button class="accordion__header" type="button" aria-expanded="false">
+        <svg class="accordion__arrow" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+
+        <span class="accordion__title">
+          MEDIANO <span class="accordion__subtitle">( Recámara, Salón, Estudio )</span>
+        </span>
+
+        <svg class="accordion__arrow accordion__arrow--right" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="accordion__panel">
+        <!-- Los productos de esta sección se cargan dinámicamente desde
+             la hoja "Mediano" del Google Sheet -->
+        <div class="accordion__grid" id="grid-mediano">
+          <p class="accordion__empty">Cargando productos…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BLOQUE 3: GRANDE ( SALA, PATIO, JARDIN )
+         ============================================================ -->
+    <section class="accordion" data-accordion>
+
+      <button class="accordion__header" type="button" aria-expanded="false">
+        <svg class="accordion__arrow" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+
+        <span class="accordion__title">
+          GRANDE <span class="accordion__subtitle">( Sala, Patio, Jardín )</span>
+        </span>
+
+        <svg class="accordion__arrow accordion__arrow--right" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="accordion__panel">
+        <!-- Los productos de esta sección se cargan dinámicamente desde
+             la hoja "Grande" del Google Sheet -->
+        <div class="accordion__grid" id="grid-grande">
+          <p class="accordion__empty">Cargando productos…</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+<div class="cart-button-container">
+    <a href="carrito.html" class="global-cart-btn">Carrito de compras</a>
+  </div>
+  <!-- ======================================================
+       SCRIPT DEL ACORDEÓN
+       Lógica: al hacer clic en el encabezado de una sección
+       (CHICO / MEDIANO / GRANDE), se alterna (toggle) la clase
+       "is-open" en su panel. Si estaba abierto se cierra;
+       si estaba cerrado se abre. Cada sección es independiente
+       de las demás (no se cierran entre sí al abrir otra).
+       ====================================================== -->
+  <script>
+    // Selecciona los 3 bloques de acordeón
+    const acordeones = document.querySelectorAll('[data-accordion]');
+
+    acordeones.forEach((acordeon) => {
+      const header = acordeon.querySelector('.accordion__header');
+      const panel = acordeon.querySelector('.accordion__panel');
+
+      header.addEventListener('click', () => {
+        // ¿El panel ya está abierto?
+        const estaAbierto = panel.classList.contains('is-open');
+
+        if (estaAbierto) {
+          // Si estaba abierto -> lo cerramos
+          panel.classList.remove('is-open');
+          header.setAttribute('aria-expanded', 'false');
+        } else {
+          // Si estaba cerrado -> lo abrimos
+          panel.classList.add('is-open');
+          header.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+<footer>
+    <div id="footer"></div>
+  </footer>
+</html>

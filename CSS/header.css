@@ -1,0 +1,176 @@
+/* ======================================================
+   RESET BÁSICO
+   Quita márgenes/paddings por defecto del navegador
+   ====================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0d0d0d; /* fondo general de la página, igual al del header */
+}
+
+/* ======================================================
+   HEADER PRINCIPAL
+   Flexbox en fila: logo | nav | buscador | iconos
+   ====================================================== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  background-color: #000000; /* negro sólido, igual a la imagen */
+  padding: 14px 24px;
+  width: 100%;
+}
+
+/* ------------------------------------------------------
+   ESPACIO RESERVADO PARA EL LOGO
+   Se deja el mismo espacio aproximado que ocupaba el logo
+   original (círculo/óvalo con brillo neón) para que el
+   usuario inserte ahí su imagen sin romper el layout.
+   ------------------------------------------------------ */
+.header__logo-placeholder {
+  width: 190px;
+  height: 90px;
+  flex-shrink: 0; /* evita que se achique cuando el espacio sea reducido */
+
+  /* Borde punteado solo como GUÍA visual para el desarrollador,
+     bórralo cuando coloques la imagen definitiva */
+
+}
+
+.header__logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* para que el logo no se deforme al insertarlo */
+}
+
+/* ======================================================
+   NAVEGACIÓN
+   ====================================================== */
+.header__nav {
+  flex: 1; /* ocupa el espacio disponible entre logo y buscador */
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.header__nav-link {
+  font-family: 'Anton', 'Arial Narrow', sans-serif; /* tipografía gruesa/condensada tipo cartel */
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap; /* evita que "RECOMENDACIONES" se parta en dos líneas */
+  transition: color 0.2s ease;
+}
+
+.header__nav-link:hover,
+.header__nav-link:focus-visible {
+  color: #e02020; /* rojo del logo como color de acento en hover */
+}
+
+/* ======================================================
+   BARRA DE BÚSQUEDA
+   Óvalo blanco con icono de lupa a la izquierda
+   ====================================================== */
+.header__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background-color: #ffffff;
+  border-radius: 999px; /* forma de píldora, igual a la imagen */
+  padding: 10px 18px;
+  width: 280px;
+  max-width: 30vw;
+}
+
+.header__search-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.header__search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+  color: #333333;
+}
+
+/* ------------------------------------------------------
+   ESPACIO RESERVADO PARA LOS ICONOS (usuario / carrito)
+   Se deja el ancho aproximado que ocupaban ambos iconos
+   en la imagen original.
+   ------------------------------------------------------ */
+.header__icons-placeholder {
+  width: 110px;
+  height: 50px;
+  flex-shrink: 0;
+
+  /* Borde punteado solo como GUÍA visual, quitar al insertar imagen */
+
+}
+
+.header__icons-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* --- CONTADOR DE ARTÍCULOS EN EL CARRITO --- */
+.header__icons-placeholder {
+  position: relative; /* Necesario para ubicar el número sobre el icono */
+}
+
+.cart-counter {
+  position: absolute;
+  top: -4px;
+  right: 6px;
+  background-color: #ff0000;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 999px;
+  box-shadow: 0 0 8px #ff0000;
+  pointer-events: none; /* Evita que estorbe al hacer clic */
+}
+
+/* Oculta el contador si no hay artículos */
+.cart-counter.hidden {
+  display: none;
+}
+/* ======================================================
+   RESPONSIVE
+   Ajustes básicos para pantallas medianas y pequeñas
+   ====================================================== */
+@media (max-width: 900px) {
+  .header {
+    flex-wrap: wrap;
+    row-gap: 16px;
+  }
+
+  .header__nav-list {
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+
+  .header__search {
+    max-width: 100%;
+    width: 100%;
+    order: 3; /* pasa el buscador a una segunda fila en móvil */
+  }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SONIQ - Home</title>
+
+  <!-- Misma fuente usada en el resto del sitio -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/home.css">
+
+  <script src="Javascript/components.js"></script>
+  <script src="Javascript/sheets-productos.js" defer></script>
+</head>
+
+<body>
+<header>
+    <div id="header"></div>
+  </header>
+  <!-- ======================================================
+       SECCIÓN HERO
+       Título neón "BIENVENIDOS" + párrafo + botón CTA
+       (El header con el logo/menú/buscador es un archivo aparte)
+       ====================================================== -->
+  <section class="hero">
+    <div class="hero__title-glow">
+      <!-- LOGO DE SONIQ -->
+      <img src="https://i.ibb.co/WNFkrrqk/logo-fondo-transparente.png" alt="Logo SONIQ" class="hero-logo">
+      <!-- TÍTULO BIENVENIDOS -->
+      <h1 class="hero__title">Bienvenidos</h1>
+    </div>
+
+    <p class="hero__text">
+      ¡Vibra en tu propio espacio! Somos <strong>SONIQ</strong>, tu tienda especializada donde
+      encontrarás las mejores bocinas para darle vida a cada rincón de tu hogar.
+      Sabemos que cada ambiente es único, por eso te conectamos con el sonido
+      perfecto para que disfrutes de tu música favorita con la mejor fidelidad.
+    </p>
+<a href="bocinas.html" class="hero__cta">Explora nuestro catálogo</a>
+  </section>
+
+  <!-- ======================================================
+       SECCIÓN "BOCINAS PARA CADA ESPACIO"
+       3 tarjetas con borde neón rojo: Small, Medium, Large
+       ====================================================== -->
+  <main class="spaces">
+    <h2 class="spaces__title">Bocinas para Cada Espacio</h2>
+
+    <div class="spaces__grid">
+
+      <!-- ============== TARJETA 1: SMALL ============== -->
+      <article class="space-card">
+
+        <!-- ESPACIO RESERVADO PARA EL ICONO DE BOCINA -->
+        <div class="space-card__icon-placeholder">
+          <!-- <img src="icono-bocina-chica.png" alt="Icono bocina" class="space-card__icon-img"> -->
+           <img src="https://i.ibb.co/TBrYh6k0/bocina-rojo-neon.png" alt="Icono bocina" class="space-card__icon-img">
+        </div>
+
+        <h3 class="space-card__heading">Espacio Pequeño</h3>
+
+        <!-- ESPACIO RESERVADO PARA LA IMAGEN DEL PRODUCTO -->
+        <div class="space-card__image-placeholder">
+          <!-- <img src="jbl-go.png" alt="Bocina pequeña" class="space-card__image-img"> -->
+           <img src="https://i.ibb.co/VYydSTTb/Ultimate-Ears-Wonderboom-3-en-el-ba-o.jpg" alt="Bocina pequeña" class="space-card__image-img">
+        </div>
+
+        <h3 class="space-card__heading">Baño, Escritorio y Cocina</h3>
+
+        <p class="space-card__size">Bocina Pequeña</p>
+        <p class="space-card__desc">Compacta, y portátil</p>
+        
+      </article>
+
+      <!-- ============== TARJETA 2: MEDIUM ============== -->
+      <article class="space-card">
+
+        <div class="space-card__icon-placeholder">
+          <!-- <img src="icono-bocina-mediana.png" alt="Icono bocina" class="space-card__icon-img"> -->
+           <img src="https://i.ibb.co/TBrYh6k0/bocina-rojo-neon.png" alt="Icono bocina" class="space-card__icon-img">
+        </div>
+
+        <h3 class="space-card__heading">Espacio Mediano</h3>
+
+        <div class="space-card__image-placeholder">
+          <!-- <img src="marshall-stanmore.png" alt="Bocina mediana" class="space-card__image-img"> -->
+           <img src="https://i.ibb.co/wbL8kBV/Sonos-Era-100-ewn-el-estudio.jpg" alt="Bocina mediana" class="space-card__image-img">
+        </div>
+
+        <h3 class="space-card__heading">Recámara,Salón y Estudio</h3>
+
+        <p class="space-card__size">Bocina Mediana</p>
+        <p class="space-card__desc">De buen tamaño y con Sonido envolvente</p>
+
+      </article>
+
+      <!-- ============== TARJETA 3: LARGE ============== -->
+      <article class="space-card">
+
+        <div class="space-card__icon-placeholder">
+          <!-- <img src="icono-bocina-grande.png" alt="Icono bocina" class="space-card__icon-img"> -->
+           <img src="https://i.ibb.co/TBrYh6k0/bocina-rojo-neon.png" alt="Icono bocina" class="space-card__icon-img">
+        </div>
+
+        <h3 class="space-card__heading">Espacio Grande</h3>
+
+        <div class="space-card__image-placeholder">
+          <!-- <img src="sony-jbl-party.png" alt="Bocinas grandes" class="space-card__image-img"> -->
+           <img src="https://i.ibb.co/wNsp2RsN/Soundcore-Rave-3-S-carnita-asada.jpg" alt="Bocinas grandes" class="space-card__image-img">
+        </div>
+
+        <h3 class="space-card__heading">Sala, Patio y Jardín</h3>
+
+        <p class="space-card__size">Bocina Grande</p>
+        <p class="space-card__desc">Máxima potencia y gran bateria</p>
+
+      </article>
+
+    </div>
+  </main>
+
+</body>
+<footer>
+    <div id="footer"></div>
+  </footer>
+</html>

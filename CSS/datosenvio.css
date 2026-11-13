@@ -1,0 +1,323 @@
+/* ======================================================
+   RESET BÁSICO
+   ====================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000; /* fondo negro, consistente con el resto del sitio */
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+}
+
+/* ======================================================
+   TÍTULO SUPERIOR CON EFECTO NEÓN
+   ====================================================== */
+.page-title-glow {
+  background: radial-gradient(ellipse at center, rgba(255, 30, 30, 0.4) 0%, rgba(255, 0, 0, 0.1) 45%, rgba(0, 0, 0, 0) 75%);
+  padding: 36px 20px 30px;
+  text-align: center;
+}
+
+.page-title {
+  font-family: 'Anton', 'Arial Narrow', sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffb199;
+  text-shadow:
+    0 0 8px #ff3b3b,
+    0 0 18px #ff3b3b,
+    0 0 34px #ff0000,
+    0 0 55px #ff0000;
+}
+
+/* ======================================================
+   LAYOUT PRINCIPAL: formulario + resumen
+   ====================================================== */
+.checkout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 24px 60px;
+
+  display: grid;
+  grid-template-columns: 1.9fr 1fr; /* formulario más ancho que el resumen */
+  gap: 28px;
+  align-items: start;
+}
+
+/* ======================================================
+   COLUMNA IZQUIERDA: FORMULARIO
+   ====================================================== */
+.payment__intro {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+/* Caja con borde rojo. El <fieldset> permite que el <legend>
+   quede sobre la línea del borde */
+.card-form__box {
+  border: 1px solid #ff2222;
+  border-radius: 12px;
+  padding: 4px 20px 24px;
+  min-inline-size: 0; /* evita que el fieldset desborde en pantallas pequeñas */
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-form__legend {
+  font-weight: 700;
+  font-size: 19px;
+  padding: 0 4px;
+}
+
+/* ------------------------------------------------------
+   CUADRÍCULA DE CAMPOS: 2 columnas
+   Un campo con la clase "field--full" ocupa las 2 columnas
+   ------------------------------------------------------ */
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0; /* permite que el campo se encoja dentro de la cuadrícula */
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.field__label {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.field__optional {
+  font-weight: 400;
+  color: #9a9a9a;
+}
+
+.field__input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #0b0b0b;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  padding: 11px 12px;
+  width: 100%;
+  color-scheme: dark; /* lista desplegable del <select> en modo oscuro */
+}
+
+.field__input::placeholder {
+  color: #9a9a9a;
+}
+
+/* Campo de referencias: solo se puede estirar hacia abajo */
+.field__input--area {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* Al enfocar un campo se resalta con el rojo de la marca */
+.field__input:focus {
+  outline: none;
+  border-color: #ff2222;
+  box-shadow: 0 0 8px rgba(255, 34, 34, 0.5);
+}
+
+/* Campo incompleto o incorrecto (lo marca datosenvio.js) */
+.field__input[aria-invalid="true"] {
+  border-color: #ff2222;
+  box-shadow: 0 0 8px rgba(255, 34, 34, 0.5);
+}
+
+/* ------------------------------------------------------
+   MENSAJES DEL FORMULARIO
+   ------------------------------------------------------ */
+.card-form__error {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ff5a5a;
+}
+
+.card-form__ok {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: rgba(216, 20, 20, 0.25);
+  border: 1px solid #ff2222;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+/* El atributo [hidden] siempre oculta, aunque la clase defina display */
+.card-form__error[hidden],
+.card-form__ok[hidden],
+.summary__final[hidden],
+.summary__hint[hidden] {
+  display: none;
+}
+
+/* ======================================================
+   BOTONES (compartidos por formulario y resumen)
+   ====================================================== */
+.btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+
+  border: none;
+  border-radius: 999px;
+  padding: 13px 20px;
+  cursor: pointer;
+
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: scale(1.02);
+  filter: brightness(1.08);
+}
+
+/* Rojo sólido, texto blanco */
+.btn--primary {
+  background-color: #d81414;
+  color: #ffffff;
+}
+
+/* Botón del formulario: ocupa todo el ancho y deja aire arriba */
+.btn--wide {
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* Botón deshabilitado (ej. "Finalizar compra" antes de enviar los datos):
+   atenuado, sin efecto al pasar el mouse y con cursor de "prohibido" */
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+}
+
+/* ======================================================
+   COLUMNA DERECHA: RESUMEN DE COMPRA
+   Borde rojo solo arriba, a la izquierda y abajo, como en la página de pago
+   ====================================================== */
+.summary {
+  border: 1px solid #ff2222;
+  border-right: none; /* el lado derecho no lleva borde */
+  padding: 18px 22px 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary__title {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.summary__divider {
+  border: none;
+  border-top: 1px solid #3a3a3a;
+}
+
+.summary__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.summary__discount {
+  color: #ff2b2b;
+}
+
+.summary__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 0 8px;
+}
+
+.summary__total-label {
+  font-family: 'Anton', 'Arial Narrow', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #ff2b2b;
+  text-shadow: 0 0 10px rgba(255, 43, 43, 0.8);
+}
+
+.summary__total-value {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/* Aviso bajo el botón "Finalizar compra" mientras está deshabilitado */
+.summary__hint {
+  font-size: 11px;
+  text-align: center;
+  color: #bdbdbd;
+}
+
+/* Mensaje final de compra generada: se queda fijo */
+.summary__final {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  color: #ffffff;
+  background-color: rgba(216, 20, 20, 0.25);
+  border: 1px solid #ff2222;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.summary__note {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+@media (max-width: 820px) {
+  .checkout {
+    grid-template-columns: 1fr; /* el resumen pasa debajo del formulario */
+  }
+
+  .summary {
+    border-right: 1px solid #ff2222; /* en una columna sí se cierra el borde */
+  }
+}
+
+@media (max-width: 560px) {
+  .page-title {
+    font-size: 30px;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr; /* todos los campos en una sola columna */
+  }
+}
