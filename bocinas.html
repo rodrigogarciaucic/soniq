@@ -18,6 +18,10 @@
  <div id="header" ></div>
 </header>
 <body>
+<video autoplay muted loop playsinline class="background-video">
+  <source src="https://raw.githubusercontent.com/rodrigogarciaucic/recursos-soniq/31a0cfc0fedbc5fa3ebd812b986ca4ad8c5ea905/video%20neon%20rojo%20.mp4" type="video/mp4">
+</video>
+<div class="video-overlay"></div>
 
   <!-- ======================================================
        TÍTULO CON EFECTO NEÓN
@@ -30,7 +34,9 @@
        CONTENIDO PRINCIPAL: 3 secciones tipo acordeón
        ====================================================== -->
   <main class="bocinas">
-
+<!-- GIFS LATERALES DE BOCINAS -->
+    <img src="https://i.ibb.co/hFG6rsXh/speaker-red-neon-right.gif" alt="Bocina lateral izquierda" class="side-speaker side-speaker--left">
+    <img src="https://i.ibb.co/LzmvLPys/speaker-red-neon-left.gif" alt="Bocina lateral derecha" class="side-speaker side-speaker--right">
     <!-- ============================================================
          BLOQUE 1: CHICO ( BAÑO, ESCRITORIO, COCINA )
          ============================================================ -->
@@ -132,27 +138,43 @@
        si estaba cerrado se abre. Cada sección es independiente
        de las demás (no se cierran entre sí al abrir otra).
        ====================================================== -->
-  <script>
-    // Selecciona los 3 bloques de acordeón
+ <script>
     const acordeones = document.querySelectorAll('[data-accordion]');
+    const contenedorBocinas = document.querySelector('.bocinas');
+
+    function actualizarGifsLaterales() {
+      // Revisa si LOS TRES acordeones están CERRADOS (no tienen la clase 'is-open')
+      const todosCerrados = Array.from(acordeones).every((acordeon) => {
+        return !acordeon.querySelector('.accordion__panel').classList.contains('is-open');
+      });
+
+      if (todosCerrados) {
+        contenedorBocinas.classList.add('show-side-speakers');
+      } else {
+        contenedorBocinas.classList.remove('show-side-speakers');
+      }
+    }
+
+    // Ejecutar al cargar la página para que aparezcan de inicio si están cerrados
+    actualizarGifsLaterales();
 
     acordeones.forEach((acordeon) => {
       const header = acordeon.querySelector('.accordion__header');
       const panel = acordeon.querySelector('.accordion__panel');
 
       header.addEventListener('click', () => {
-        // ¿El panel ya está abierto?
         const estaAbierto = panel.classList.contains('is-open');
 
         if (estaAbierto) {
-          // Si estaba abierto -> lo cerramos
           panel.classList.remove('is-open');
           header.setAttribute('aria-expanded', 'false');
         } else {
-          // Si estaba cerrado -> lo abrimos
           panel.classList.add('is-open');
           header.setAttribute('aria-expanded', 'true');
         }
+
+        // Evalúa el estado cada vez que haces clic en un acordeón
+        actualizarGifsLaterales();
       });
     });
   </script>

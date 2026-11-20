@@ -7,8 +7,35 @@
   box-sizing: border-box;
 }
 
+/* Fondo negro de respaldo */
 body {
-  background-color: #000000; /* fondo negro, igual al resto del sitio */
+  background-color: #000000;
+  position: relative;
+}
+
+/* Video fijo de fondo */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.90; /* Baja o sube la intensidad del brillo aquí */
+  pointer-events: none;
+}
+
+/* Capa oscura para que los textos resalten */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* ======================================================
@@ -340,4 +367,44 @@ body {
 .global-cart-btn:focus-visible {
   background-color: #f0f0f0;
   transform: scale(1.03);
+}
+/* ======================================================
+   GIFS LATERALES DE BOCINAS (ACORDEONES ABIERTOS)
+   ====================================================== */
+.bocinas {
+  position: relative; /* Clave para posicionar los GIFs en relación a este contenedor */
+}
+
+.side-speaker {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px; /* Ajusta el tamaño del GIF según prefieras */
+  height: auto;
+  pointer-events: none; /* Evita que estorben al hacer clic en otros elementos */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 5;
+}
+
+.side-speaker--left {
+  left: 50px; /* Distancia hacia la izquierda del contenido central */
+}
+
+.side-speaker--right {
+  right: 50px; /* Distancia hacia la derecha del contenido central */
+}
+
+/* Clase que activa la visibilidad cuando los 3 acordeones están abiertos */
+.bocinas.show-side-speakers .side-speaker {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Seguridad responsive: en pantallas de escritorio compactas o tablets se ocultan para evitar que choquen con los bordes de la pantalla */
+@media (max-width: 1400px) {
+  .side-speaker {
+    display: none !important;
+  }
 }

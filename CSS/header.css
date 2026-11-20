@@ -47,6 +47,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain; /* para que el logo no se deforme al insertarlo */
+  filter: drop-shadow(0 0 10px #ff3b3b) brightness(1.1);
+  transition: filter 0.3s ease;
 }
 
 /* ======================================================
@@ -63,6 +65,11 @@ body {
   list-style: none;
 }
 
+.header__logo-img:hover {
+  animation: vibrarLogo 0.3s ease infinite;
+  filter: drop-shadow(0 0 18px #ff0000) brightness(1.2);
+}
+
 .header__nav-link {
   font-family: 'Anton', 'Arial Narrow', sans-serif; /* tipografía gruesa/condensada tipo cartel */
   font-size: 20px;
@@ -74,6 +81,14 @@ body {
   transition: color 0.2s ease;
 }
 
+@keyframes vibrarLogo {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-2px, 2px) rotate(-1deg); }
+  40% { transform: translate(-2px, -2px) rotate(1deg); }
+  60% { transform: translate(2px, 2px) rotate(0deg); }
+  80% { transform: translate(2px, -2px) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
 .header__nav-link:hover,
 .header__nav-link:focus-visible {
   color: #e02020; /* rojo del logo como color de acento en hover */

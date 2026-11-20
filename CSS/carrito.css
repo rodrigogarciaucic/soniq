@@ -7,8 +7,35 @@
   box-sizing: border-box;
 }
 
+/* Fondo negro de respaldo */
 body {
-  background-color: #000000; /* fondo negro, consistente con el resto del sitio */
+  background-color: #000000;
+  position: relative;
+}
+
+/* Video fijo de fondo */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.90; /* Baja o sube la intensidad del brillo aquí */
+  pointer-events: none;
+}
+
+/* Capa oscura para que los textos resalten */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* ======================================================

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SONIQ - Análisis de Bocinas</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:ital,wght@0,600;1,700&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="CSS/analisis.css">
+
+  <script src="Javascript/components.js"></script>
+</head>
+<body>
+  <video autoplay muted loop playsinline class="background-video">
+  <source src="https://raw.githubusercontent.com/rodrigogarciaucic/recursos-soniq/31a0cfc0fedbc5fa3ebd812b986ca4ad8c5ea905/video%20neon%20rojo%20.mp4" type="video/mp4">
+</video>
+<div class="video-overlay"></div>
+  <header>
+    <div id="header"></div>
+  </header>
+
+  <!-- TÍTULO CON EFECTO NEÓN -->
+  <div class="title-glow">
+    <h1 class="page-title">Análisis de Bocinas</h1>
+  </div>
+
+  <main class="analisis-main">
+
+    <!-- ======================================================
+         SECCIÓN 1: BOCINAS CHICAS
+         ====================================================== -->
+    <section class="analisis-section">
+      <div class="section-header-wrap">
+        <svg class="accordion__arrow" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+        <h2 class="section-main-title">Bocinas Chicas <span class="section-subtitle">"Compactas, y portátiles"</span></h2>
+        <svg class="accordion__arrow accordion__arrow--right" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="carousel-container" data-carousel="chicas">
+        <button class="carousel-btn carousel-btn--prev" aria-label="Anterior">&#10094;</button>
+        
+        <div class="carousel-track-container">
+          <div class="carousel-track">
+
+            <!-- Tarjeta 1: JBL Go 3 -->
+            <div class="carousel-slide is-active" data-index="0" data-title="JBL Go 3" data-url="https://www.youtube.com/watch?v=RYHBQTi2mqk">
+              <div class="neon-card">
+                <h3 class="product-title">JBL Go 3</h3>
+                <div class="video-container" data-videoid="RYHBQTi2mqk">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/RYHBQTi2mqk/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    El altavoz JBL Go 3 ofrece un diseño ultraportátil y vanguardista con llamativos detalles de tela y colores vibrantes. Su sonido JBL Pro Sound original sorprende por su potencia y graves contundentes a pesar de su tamaño de bolsillo. Cuenta con certificación IP67 de resistencia al agua y al polvo, lo que lo hace perfecto para llevarlo a la playa, piscina o ducha. Su batería recargable ofrece hasta 5 horas de reproducción continua con una sola carga. Incorpora un práctico lazo de transporte integrado para mayor comodidad. Ideal para usuarios dinámicos que buscan música en cualquier lugar sin complicaciones.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 2: Ultimate Ears Wonderboom 3 -->
+            <div class="carousel-slide" data-index="1" data-title="Ultimate Ears Wonderboom 3" data-url="https://www.youtube.com/watch?v=8sHqo3aCidE">
+              <div class="neon-card">
+                <h3 class="product-title">Ultimate Ears Wonderboom 3</h3>
+                <div class="video-container" data-videoid="8sHqo3aCidE">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/8sHqo3aCidE/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    Ultimate Ears Wonderboom 3 es un altavoz inalámbrico compacto que destaca por su sonido estéreo de 360 grados sorprendentemente potente. Cuenta con el modo Outdoor Boost, diseñado especialmente para exteriores, ofreciendo un audio más alto y nítido al aire libre. Su construcción con certificación IP67 garantiza que es resistente al agua, al polvo y además flota en el agua. La batería ofrece una duración extendida de hasta 13 horas para acompañarte todo el día. Fabricado con plástico reciclado posconsumo, combina sostenibilidad y durabilidad extrema ante caídas y golpes gracias a su resistente bucle colgante.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 3: Bose SoundLink Micro -->
+            <div class="carousel-slide" data-index="2" data-title="Bose SoundLink Micro" data-url="https://www.youtube.com/watch?v=gUqgg1Rm5oY">
+              <div class="neon-card">
+                <h3 class="product-title">Bose SoundLink Micro</h3>
+                <div class="video-container" data-videoid="gUqgg1Rm5oY">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/gUqgg1Rm5oY/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    Bose SoundLink Micro combina un tamaño diminuto con un sonido nítido y graves equilibrados gracias a su transductor personalizado y radiadores pasivos. Su correa de silicona resistente a desgarros permite sujetarlo con seguridad a mochilas, manubrios de bicicleta o cinturones. Dispone de certificación IP67 a prueba de agua, polvo y caídas accidentales. Ofrece hasta 6 horas de reproducción por carga con indicaciones de voz para un emparejamiento Bluetooth rápido. Funciona también como altavoz manos libres para llamadas nítidas y es compatible con SimpleSync para conectarlo con otros equipos Bose.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 4: Sony SRS-XB100 -->
+            <div class="carousel-slide" data-index="3" data-title="Sony SRS-XB100" data-url="https://www.youtube.com/watch?v=9x4hbb7CWj4">
+              <div class="neon-card">
+                <h3 class="product-title">Sony SRS-XB100</h3>
+                <div class="video-container" data-videoid="9x4hbb7CWj4">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/9x4hbb7CWj4/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    El altavoz compacto Sony SRS-XB100 integra sonido potente Extra Bass y un procesador de difusión de sonido para una dispersión óptima. Su diseño exterior incluye un revestimiento UV de alta durabilidad y certificación IP67 contra agua y polvo. Cuenta con una impresionante autonomía de hasta 16 horas de batería con indicador de estado. Su versátil correa multidireccional facilita colgarlo en cualquier lugar con total comodidad. Incorpora tecnología de cancelación de eco para llamadas con manos libres claras y puerto de carga USB Type-C rápido y moderno.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="carousel-btn carousel-btn--next" aria-label="Siguiente">&#10095;</button>
+      </div>
+      <div class="carousel-dots">
+        <span class="dot is-active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECCIÓN 2: BOCINAS MEDIANAS
+         ====================================================== -->
+    <section class="analisis-section">
+      <div class="section-header-wrap">
+        <svg class="accordion__arrow" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+        <h2 class="section-main-title">Bocinas Medianas <span class="section-subtitle">"De buen tamaño y con Sonido envolvente"</span></h2>
+        <svg class="accordion__arrow accordion__arrow--right" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="carousel-container" data-carousel="medianas">
+        <button class="carousel-btn carousel-btn--prev" aria-label="Anterior">&#10094;</button>
+        
+        <div class="carousel-track-container">
+          <div class="carousel-track">
+
+            <!-- Tarjeta 1: Marshall Middleton II -->
+            <div class="carousel-slide is-active" data-index="0" data-title="Marshall Middleton II" data-url="https://www.youtube.com/watch?v=ZeH6VuyBkNs">
+              <div class="neon-card">
+                <h3 class="product-title">Marshall Middleton II</h3>
+                <div class="video-container" data-videoid="ZeH6VuyBkNs">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/ZeH6VuyBkNs/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    Marshall Middleton ofrece sonido estéreo multidireccional True Stereophonic para una experiencia auditiva inmersiva en cualquier habitación. Su diseño clásico de inspiración rock incluye controles analógicos superiores de graves, agudos y volumen. Posee certificación IP67 de resistencia al polvo y agua para máxima tranquilidad en exteriores. Su batería de gran capacidad brinda más de 20 horas de reproducción portátil con función de carga rápida. Incluye el modo Stack Mode para conectar múltiples altavoces y un chasis robusto fabricado con materiales plásticos reciclados.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 2: Bose SoundLink Max -->
+            <div class="carousel-slide" data-index="1" data-title="Bose SoundLink Max" data-url="https://www.youtube.com/watch?v=VPevlSn8nBI">
+              <div class="neon-card">
+                <h3 class="product-title">Bose SoundLink Max</h3>
+                <div class="video-container" data-videoid="VPevlSn8nBI">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/VPevlSn8nBI/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    Bose SoundLink Max está diseñado para entregar graves profundos y un sonido estéreo robusto que llena cualquier espacio exterior o fiesta. Su diseño festivalero cuenta con certificación IP67, asa de cuerda extraíble y chasis de acero con revestimiento de silicona. Ofrece hasta 20 horas de reproducción continua con su batería de alto rendimiento. Integra función de batería externa USB-C para cargar tu teléfono mientras disfrutas de la música. Soporta conexión Bluetooth 5.3 avanzada y entrada auxiliar de 3.5mm para máxima compatibilidad con fuentes de audio.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 3: JBL Charge 5 -->
+            <div class="carousel-slide" data-index="2" data-title="JBL Charge 5" data-url="https://www.youtube.com/watch?v=QuxsbPDau1U">
+              <div class="neon-card">
+                <h3 class="product-title">JBL Charge 5</h3>
+                <div class="video-container" data-videoid="QuxsbPDau1U">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/QuxsbPDau1U/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    JBL Charge 5 incorpora el potente sonido JBL Original Pro Sound con un driver optimizado de gran recorrido, tweeter independiente y radiadores de graves duales. Su batería ofrece hasta 20 horas de reproducción ininterrumpida y funciona como power bank para cargar tus dispositivos móviles. Cuenta con clasificación IP67 resistente al agua y al polvo para soportar cualquier fiesta junto a la piscina. La función PartyBoost permite vincular múltiples altavoces compatibles para elevar la potencia sonora. Su exterior de goma duradera y rejilla de tela resiste el uso rudo diario.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 4: Sonos Era 100 -->
+            <div class="carousel-slide" data-index="3" data-title="Sonos Era 100" data-url="https://www.youtube.com/watch?v=8b0fuaPT9Kc">
+              <div class="neon-card">
+                <h3 class="product-title">Sonos Era 100</h3>
+                <div class="video-container" data-videoid="8b0fuaPT9Kc">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/8b0fuaPT9Kc/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    Sonos Era 100 redefine el audio doméstico mediano con su arquitectura acústica de nueva generación con tweeters duales en ángulo para un sonido estéreo detallado. Ofrece calibración acústica Trueplay para adaptar el sonido perfectamente a la acústica de tu habitación. Permite conectividad versátil por Wi-Fi, Bluetooth y entrada de línea mediante adaptador opcional. Su diseño cilíndrico moderno incluye controles táctiles capacitivos intuitivos en la parte superior. Se integra sin problemas al ecosistema de audio multi-habitación de Sonos para una experiencia sonora total en el hogar.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="carousel-btn carousel-btn--next" aria-label="Siguiente">&#10095;</button>
+      </div>
+      <div class="carousel-dots">
+        <span class="dot is-active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECCIÓN 3: BOCINA GRANDE
+         ====================================================== -->
+    <section class="analisis-section">
+      <div class="section-header-wrap">
+        <svg class="accordion__arrow" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+        <h2 class="section-main-title">Bocina Grande <span class="section-subtitle">"Máxima potencia y Gran bateria"</span></h2>
+        <svg class="accordion__arrow accordion__arrow--right" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="4,8 24,20 4,32" fill="none" stroke="#ff2b2b" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="carousel-container" data-carousel="grandes">
+        <button class="carousel-btn carousel-btn--prev" aria-label="Anterior">&#10094;</button>
+        
+        <div class="carousel-track-container">
+          <div class="carousel-track">
+
+            <!-- Tarjeta 1: Sony ULT Tower 9 -->
+            <div class="carousel-slide is-active" data-index="0" data-title="Sony ULT Tower 9" data-url="https://www.youtube.com/watch?v=CDywTP2CiS8">
+              <div class="neon-card">
+                <h3 class="product-title">Sony ULT Tower 9</h3>
+                <div class="video-container" data-videoid="CDywTP2CiS8">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/CDywTP2CiS8/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    Sony ULT Tower 9 está diseñada para ofrecer máxima potencia de fiesta con los modos ULT Power Sound (Deep Bass y Attack Bass) para graves profundos e impactantes. Cuenta con efectos de iluminación LED dinámicos sincronizados con el ritmo de la música para ambientar cualquier evento. Dispone de entradas para micrófono y guitarra con control de volumen independiente para noches de karaoke y presentaciones en vivo. Sus ruedas resistentes y asa ergonómica facilitan su traslado a pesar de su gran tamaño. Su potente batería recargable garantiza diversión durante toda la noche sin interrupciones.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 2: Soundcore Rave 3S -->
+            <div class="carousel-slide" data-index="1" data-title="Soundcore Rave 3S" data-url="https://www.youtube.com/watch?v=mvDGbYGQWlk">
+              <div class="neon-card">
+                <h3 class="product-title">Soundcore Rave 3S</h3>
+                <div class="video-container" data-videoid="mvDGbYGQWlk">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/mvDGbYGQWlk/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    Soundcore Rave 3S ofrece un sonido de gran formato con tecnología BassUp y anillos de luz LED personalizables que transforman cualquier espacio en una pista de baile. Sus potentes woofers y tweeters garantizan una salida de audio de alta fidelidad incluso a volumen máximo. Cuenta con certificación IPX4 contra salpicaduras para uso seguro en exteriores y patios. Integra una batería de larga duración con puerto de carga rápida para dispositivos externos. Las entradas de micrófono y guitarra junto con la app Soundcore permiten configurar efectos de voz y ecualización profesional.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 3: LG STAGE 501 -->
+            <div class="carousel-slide" data-index="2" data-title="LG STAGE 501" data-url="https://www.youtube.com/watch?v=r7TOBbodSTY">
+              <div class="neon-card">
+                <h3 class="product-title">LG STAGE 501</h3>
+                <div class="video-container" data-videoid="r7TOBbodSTY">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/r7TOBbodSTY/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    LG STAGE 501 es un sistema de audio de alta potencia creado para celebraciones memorables con graves profundos y agudos cristalinos. Incorpora iluminación multicolor vibrante que reacciona de forma dinámica al ritmo de las canciones. Su batería recargable de gran capacidad ofrece horas continuas de música inalámbrica sin depender de enchufes. Incluye funciones de DJ, cambiador de voz y cancelador de voz para karaoke divertido. Sus múltiples opciones de conectividad Bluetooth y USB garantizan la reproducción de tus listas de reproducción favoritas sin complicaciones.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 4: JBL PartyBox 310 -->
+            <div class="carousel-slide" data-index="3" data-title="JBL PartyBox 310" data-url="https://www.youtube.com/watch?v=lNPPzLG8MAw">
+              <div class="neon-card">
+                <h3 class="product-title">JBL PartyBox 310</h3>
+                <div class="video-container" data-videoid="lNPPzLG8MAw">
+                  <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/lNPPzLG8MAw/hqdefault.jpg');">
+                    <button class="play-btn" aria-label="Reproducir video"><i class="fa-solid fa-play"></i></button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <p class="product-desc">
+                    JBL PartyBox 310 ofrece 240 watts de monumental sonido JBL Pro Sound acompañado de un deslumbrante espectáculo de luces rítmicas. Su diseño portátil cuenta con ruedas de deslizamiento suave y un asa telescópica para transportarla fácilmente. Dispone de protección contra salpicaduras IPX4 para resistir fiestas al aire libre o junto a la alberca. Su batería ofrece hasta 18 horas de reproducción continua. Incluye entradas duales para micrófono y guitarra con efectos de afinación vocal incorporados y reproducción directa mediante puerto USB.
+                  </p>
+                  <div class="share-container">
+                    <span class="share-label"><i class="fa-solid fa-share-nodes"></i> Compartir:</span>
+                    <div class="share-buttons">
+                      <button class="share-btn share-btn--whatsapp" onclick="shareSocial('whatsapp', this)" title="Compartir en WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                      <button class="share-btn share-btn--facebook" onclick="shareSocial('facebook', this)" title="Compartir en Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                      <button class="share-btn share-btn--twitter" onclick="shareSocial('twitter', this)" title="Compartir en X / Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                      <button class="share-btn share-btn--copy" onclick="copyLink(this)" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="carousel-btn carousel-btn--next" aria-label="Siguiente">&#10095;</button>
+      </div>
+      <div class="carousel-dots">
+        <span class="dot is-active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div id="footer"></div>
+  </footer>
+
+  <!-- SCRIPT PARA EL CARRUSEL Y REPRODUCCIÓN DE VIDEOS AL CLIC -->
+  <script>
+    document.querySelectorAll('.carousel-container').forEach(container => {
+      const track = container.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const nextBtn = container.querySelector('.carousel-btn--next');
+      const prevBtn = container.querySelector('.carousel-btn--prev');
+      const section = container.closest('.analisis-section');
+      const dots = section.querySelectorAll('.dot');
+      
+      let currentIndex = 0;
+
+      function updateSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('is-active', i === index);
+        });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === index);
+        });
+        currentIndex = index;
+      }
+
+      nextBtn.addEventListener('click', () => {
+        let nextIndex = (currentIndex + 1) % slides.length;
+        updateSlide(nextIndex);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlide(prevIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          updateSlide(i);
+        });
+      });
+    });
+
+    // Cargar iframe de YouTube al hacer clic en la miniatura
+    document.querySelectorAll('.video-container').forEach(container => {
+      container.addEventListener('click', () => {
+        const videoId = container.getAttribute('data-videoid');
+        container.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      });
+    });
+
+    // Funciones de Compartir en Redes Sociales
+    function shareSocial(platform, btnElement) {
+      const slide = btnElement.closest('.carousel-slide');
+      const title = slide.getAttribute('data-title') || 'Análisis de Bocina SONIQ';
+      const url = slide.getAttribute('data-url') || window.location.href;
+      const descElement = slide.querySelector('.product-desc');
+      const desc = descElement ? descElement.textContent.trim() : '';
+
+      let shareText = `¡Mira el análisis de ${title}! ${url}
+
+${desc}`;
+      let shareUrl = '';
+
+      if (platform === 'whatsapp') {
+        shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+        window.open(shareUrl, '_blank');
+      } else if (platform === 'facebook') {
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        window.open(shareUrl, '_blank');
+      } else if (platform === 'twitter') {
+        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Análisis de ${title}: ${url}`)}`;
+        window.open(shareUrl, '_blank');
+      }
+    }
+
+    function copyLink(btnElement) {
+      const slide = btnElement.closest('.carousel-slide');
+      const url = slide.getAttribute('data-url') || window.location.href;
+      
+      navigator.clipboard.writeText(url).then(() => {
+        btnElement.innerHTML = '<i class="fa-solid fa-check"></i>';
+        setTimeout(() => {
+          btnElement.innerHTML = '<i class="fa-solid fa-link"></i>';
+        }, 2000);
+      }).catch(err => {
+        console.error('Error al copiar el enlace: ', err);
+      });
+    }
+  </script>
+</body>
+</html>

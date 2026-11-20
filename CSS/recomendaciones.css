@@ -1,0 +1,174 @@
+/* ======================================================
+   RESET BÁSICO Y ESTILOS GLOBALES
+   ====================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo negro de respaldo */
+/* Fondo negro de respaldo */
+body {
+  background-color: #000000;
+  position: relative;
+}
+
+/* Video fijo de fondo */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.90;
+  pointer-events: none;
+}
+
+/* Capa oscura para que los textos resalten */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ======================================================
+   TÍTULO CON EFECTO NEÓN
+   ====================================================== */
+.title-glow {
+  background: radial-gradient(ellipse at center, rgba(255, 30, 30, 0.55) 0%, rgba(255, 0, 0, 0.15) 45%, rgba(0, 0, 0, 0) 75%);
+  padding: 50px 20px 40px;
+  text-align: center;
+}
+
+.page-title {
+  font-family: 'Anton', 'Arial Narrow', sans-serif;
+  font-size: 52px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffb199;
+  text-shadow:
+    0 0 8px #ff3b3b,
+    0 0 18px #ff3b3b,
+    0 0 34px #ff0000,
+    0 0 60px #ff0000;
+}
+
+.page-subtitle {
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: #e0e0e0;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ======================================================
+   CONTENEDOR PRINCIPAL DE RECOMENDACIONES
+   ====================================================== */
+.recommendations-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+/* ======================================================
+   BLOQUE INDIVIDUAL (SIN MARCO NEÓN)
+   ====================================================== */
+.rec-block {
+  background-color: #080808;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ------------------------------------------------------
+   CONTENEDOR DEL GIF
+   Tamaño horizontal recomendado para los GIFs: 
+   Ancho fluido con max-width: 100% (ideal exportar a 800px - 1000px de ancho).
+   ------------------------------------------------------ */
+.rec-media-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: #000000;
+}
+
+.rec-gif {
+  width: 100%;
+  max-width: 800px; /* Tamaño horizontal recomendado */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ------------------------------------------------------
+   CONTENIDO DE TEXTO Y TÍTULOS
+   ------------------------------------------------------ */
+.rec-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.rec-heading {
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-left: 4px solid #ff2b2b;
+  padding-left: 12px;
+}
+
+.rec-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #dcdcdc;
+  text-align: justify;
+}
+
+/* ======================================================
+   RESPONSIVE DESIGN
+   ====================================================== */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 36px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+  }
+
+  .rec-block {
+    padding: 20px;
+  }
+
+  .rec-heading {
+    font-size: 18px;
+  }
+
+  .rec-text {
+    font-size: 14px;
+  }
+}
